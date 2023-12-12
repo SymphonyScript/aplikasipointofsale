@@ -29,7 +29,7 @@
 
                     @yield('content')
                     <div class="simple-footer">
-                        Copyright &copy; Omni Digital Technology {{ date('Y') }}
+                        Copyright &copy; Symphony IT {{ date('Y') }}
                     </div>
                 </div>
             </div>
