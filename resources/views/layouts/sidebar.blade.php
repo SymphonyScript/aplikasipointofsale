@@ -44,7 +44,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="">
+                    <a class="nav-link menu-link" href="{{ route('customer.index') }}">
                         <i class="mdi mdi-speedometer"></i> <span>Customer</span>
                     </a>
                 </li>
