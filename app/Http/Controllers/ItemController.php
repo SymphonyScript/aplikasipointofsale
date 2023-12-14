@@ -77,6 +77,11 @@ class ItemController extends Controller
         return back();
     }
 
+    public function getItem(Request $request){
+        $item = Item::find($request->item_id);
+        return $item;
+    }
+
     public function qr(Item $item){
         return view('product.item.qr', compact('item'));
     }

@@ -76,6 +76,7 @@ Route::middleware(['auth'])->group(function (){
             Route::put('/update/{item}', [\App\Http\Controllers\ItemController::class, 'update'])->name('product.item.update');
             Route::get('/delete/{item}', [\App\Http\Controllers\ItemController::class, 'destroy'])->name('product.item.delete');
             Route::get('/qr/{item}', [\App\Http\Controllers\ItemController::class, 'qr'])->name('product.item.qr');
+            Route::get('/get-item', [\App\Http\Controllers\ItemController::class, 'getItem'])->name('product.item.get-item');
         });
     });
 
@@ -97,5 +98,14 @@ Route::middleware(['auth'])->group(function (){
             Route::put('/update/{stock}', [\App\Http\Controllers\StockOutController::class, 'update'])->name('stock.out.update');
             Route::get('/delete/{stock}', [\App\Http\Controllers\StockOutController::class, 'destroy'])->name('stock.out.delete');
         });
+    });
+
+    Route::prefix('transaction')->group(function (){
+        Route::get('/', [\App\Http\Controllers\TransactionController::class, 'index'])->name('transaction.index');
+        Route::get('/create', [\App\Http\Controllers\TransactionController::class, 'create'])->name('transaction.create');
+        Route::post('/store', [\App\Http\Controllers\TransactionController::class, 'store'])->name('transaction.store');
+        Route::get('/edit/{transaction}', [\App\Http\Controllers\TransactionController::class, 'edit'])->name('transaction.edit');
+        Route::put('/update/{transaction}', [\App\Http\Controllers\TransactionController::class, 'update'])->name('transaction.update');
+        Route::get('/delete/{transaction}', [\App\Http\Controllers\TransactionController::class, 'destroy'])->name('transaction.delete');
     });
 });

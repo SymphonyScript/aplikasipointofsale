@@ -91,7 +91,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="">
+                    <a class="nav-link menu-link" href="{{ route('transaction.create') }}">
                         <i class="mdi mdi-speedometer"></i> <span>Transaksi</span>
                     </a>
                 </li>
