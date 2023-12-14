@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->string('code');
-            $table->integer('casier_id');
+            $table->integer('cashier_id');
             $table->double('total', 14, 2)->default(0);
             $table->integer('customer_id');
             $table->timestamps();

@@ -103,5 +103,17 @@ Route::middleware(['auth'])->group(function (){
     Route::prefix('transaction')->group(function (){
         Route::get('/create', [\App\Http\Controllers\TransactionController::class, 'create'])->name('transaction.create');
         Route::post('/store', [\App\Http\Controllers\TransactionController::class, 'store'])->name('transaction.store');
+        Route::get('/delete/{transaction}', [\App\Http\Controllers\TransactionController::class, 'destroy'])->name('transaction.delete');
+    });
+
+    Route::prefix('report')->group(function (){
+        Route::prefix('transaction')->group(function (){
+            Route::get('/', [\App\Http\Controllers\ReportTransactionController::class, 'index'])->name('report.transaction.index');
+        });
+
+        Route::prefix('stock')->group(function (){
+            Route::get('/in', [\App\Http\Controllers\ReportStockController::class, 'in'])->name('report.stock.in');
+            Route::get('/out', [\App\Http\Controllers\ReportStockController::class, 'out'])->name('report.stock.out');
+        });
     });
 });

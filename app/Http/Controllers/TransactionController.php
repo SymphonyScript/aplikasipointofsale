@@ -40,6 +40,12 @@ class TransactionController extends Controller
         ]);
 
         foreach ($request->item as $key => $item){
+            $item = Item::find($item);
+
+            $item->update([
+                'stock' => $item->stock - $request->qty[$key]
+            ]);
+
             TransactionItem::create([
                 'item_id' => $item,
                 'transaction_id' => $transaction->id,
@@ -51,5 +57,18 @@ class TransactionController extends Controller
 
         toast('Transaksi berhasil ditambah!', 'success');
         return redirect()->route('transaction.create');
+    }
+
+    public function destroy(Transaction $transaction){
+        foreach ($transaction->items as $item){
+            $product = Item::find($item->item_id);
+
+            $product->update([
+                'stock' => $product->stock + $item->qty
+            ]);
+        }
+
+        toast('Transaksi berhasil dihapus!', 'success');
+        return back();
     }
 }

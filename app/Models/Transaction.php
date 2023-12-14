@@ -11,16 +11,20 @@ class Transaction extends Model
 
     protected $fillable = [
         'code',
-        'casier_id',
+        'cashier_id',
         'total',
         'customer_id'
     ];
 
-    public function casier(){
-        return $this->belongsTo(User::class, 'casier_id')->withDefault();
+    public function cashier(){
+        return $this->belongsTo(User::class, 'cashier_id')->withDefault();
     }
 
     public function customer(){
         return $this->belongsTo(User::class, 'customer_id');
+    }
+
+    public function items(){
+        return $this->hasMany(TransactionItem::class, 'item_id');
     }
 }

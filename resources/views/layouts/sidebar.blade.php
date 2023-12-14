@@ -104,13 +104,13 @@
                     <div class="collapse menu-dropdown" id="sidebarReports">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="" class="nav-link">Penjualan</a>
+                                <a href="{{ route('report.transaction.index') }}" class="nav-link">Penjualan</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">Stock In</a>
+                                <a href="{{ route('report.stock.in') }}" class="nav-link">Stock In</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">Stock Out</a>
+                                <a href="{{ route('report.stock.out') }}" class="nav-link">Stock Out</a>
                             </li>
                         </ul>
                     </div>
