@@ -15,6 +15,8 @@ return new class extends Migration
             $table->string('gender')->nullable();
             $table->text('address')->nullable();
             $table->string('phone_number')->nullable();
+            $table->string('password')->change()->nullable();
+            $table->string('email')->change()->nullable();
             $table->softDeletes();
         });
     }

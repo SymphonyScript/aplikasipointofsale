@@ -50,29 +50,25 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="">
+                    <a class="nav-link menu-link" href="{{ route('user.index') }}">
                         <i class="mdi mdi-speedometer"></i> <span>User</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarProducts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarProducts">
-                        <i class="mdi mdi-speedometer"></i> <span>Produk
-                        </span>
+                        <i class="mdi mdi-speedometer"></i> <span>Produk</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarProducts">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="" class="nav-link">Kategori
-                                </a>
+                                <a href="{{ route('product.category.index') }}" class="nav-link">Kategori</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">Unit
-                                </a>
+                                <a href="{{ route('product.unit.index') }}" class="nav-link">Unit</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">Item
-                                </a>
+                                <a href="{{ route('product.item.index') }}" class="nav-link">Item</a>
                             </li>
                         </ul>
                     </div>
@@ -80,18 +76,15 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarStocks" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarStocks">
-                        <i class="mdi mdi-speedometer"></i> <span>Stok
-                        </span>
+                        <i class="mdi mdi-speedometer"></i> <span>Stok</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarStocks">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="" class="nav-link">Stock In
-                                </a>
+                                <a href="{{ route('stock.in.index') }}" class="nav-link">Stock In</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">Stock Out
-                                </a>
+                                <a href="{{ route('stock.out.index') }}" class="nav-link">Stock Out</a>
                             </li>
                         </ul>
                     </div>
@@ -111,16 +104,13 @@
                     <div class="collapse menu-dropdown" id="sidebarReports">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="" class="nav-link">Penjualan
-                                </a>
+                                <a href="" class="nav-link">Penjualan</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">Stock In
-                                </a>
+                                <a href="" class="nav-link">Stock In</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">Stock Out
-                                </a>
+                                <a href="" class="nav-link">Stock Out</a>
                             </li>
                         </ul>
                     </div>
