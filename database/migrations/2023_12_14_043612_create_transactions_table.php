@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('code');
             $table->integer('casier_id');
             $table->double('total', 14, 2)->default(0);
-            $table->string('status');
             $table->integer('customer_id');
             $table->timestamps();
         });

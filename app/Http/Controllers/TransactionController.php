@@ -4,66 +4,52 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\Transaction;
+use App\Models\TransactionItem;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
-    public function index(){
-        $createLink = route('supplier.create');
-
-        $suppliers = Supplier::latest()->paginate(10);
-
-        return view('supplier.index', compact('suppliers', 'createLink'));
-    }
-
     public function create(){
         $storeLink = route('transaction.store');
 
         $items  = Item::get();
+        $users = User::role('Pelanggan')->get();
 
         $year = date("Y");
         $month = date("m");
         $count = Transaction::get()->count();
         $code = 'TRX/'.$month.'/'.$year.'/'.sprintf('%04d', $count);
 
-        return view('transaction.create', compact('storeLink', 'code', 'items'));
+        return view('transaction.create', compact('storeLink', 'code', 'items', 'users'));
     }
 
     public function store(Request $request){
-        dd($request->all());
         $year = date("Y");
         $month = date("m");
         $count = Transaction::get()->count();
         $code = 'TRX/'.$month.'/'.$year.'/'.sprintf('%04d', $count);
 
-        Transaction::create([
-            'code' => $code
-            'ca'
+        $transaction = Transaction::create([
+            'code' => $code,
+            'casier_id' => Auth::user()->id,
+            'total' => $request->grand_total,
+            'customer_id' => $request->customer
         ]);
 
-        toast('Supplier berhasil ditambah!', 'success');
-        return redirect()->route('supplier.index');
-    }
+        foreach ($request->item as $key => $item){
+            TransactionItem::create([
+                'item_id' => $item,
+                'transaction_id' => $transaction->id,
+                'price' => $request->price[$key],
+                'qty' => $request->qty[$key],
+                'total' => $request->total[$key],
+            ]);
+        }
 
-    public function edit(Supplier $supplier){
-        $updateLink = route('supplier.update', $supplier);
-        $indexLink = route('supplier.index');
-
-        return view('supplier.edit', compact('supplier', 'updateLink', 'indexLink'));
-    }
-
-    public function update(Supplier $supplier, Request $request){
-        $supplier->update($request->all());
-
-        toast('Supplier berhasil diupdate!', 'success');
-        return redirect()->route('supplier.index');
-    }
-
-    public function destroy(Supplier $supplier){
-        $supplier->delete();
-
-        toast('Supplier berhasil dihapus!', 'success');
-        return back();
+        toast('Transaksi berhasil ditambah!', 'success');
+        return redirect()->route('transaction.create');
     }
 }

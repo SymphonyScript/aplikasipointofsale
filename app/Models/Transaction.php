@@ -13,7 +13,6 @@ class Transaction extends Model
         'code',
         'casier_id',
         'total',
-        'status',
         'customer_id'
     ];
 
