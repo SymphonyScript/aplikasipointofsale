@@ -104,6 +104,7 @@ Route::middleware(['auth'])->group(function (){
         Route::get('/create', [\App\Http\Controllers\TransactionController::class, 'create'])->name('transaction.create');
         Route::post('/store', [\App\Http\Controllers\TransactionController::class, 'store'])->name('transaction.store');
         Route::get('/delete/{transaction}', [\App\Http\Controllers\TransactionController::class, 'destroy'])->name('transaction.delete');
+        Route::get('/statistic', [\App\Http\Controllers\TransactionController::class, 'statistic'])->name('transaction.statistic');
     });
 
     Route::prefix('report')->group(function (){

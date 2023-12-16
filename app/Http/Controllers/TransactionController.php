@@ -34,7 +34,7 @@ class TransactionController extends Controller
 
         $transaction = Transaction::create([
             'code' => $code,
-            'casier_id' => Auth::user()->id,
+            'cashier_id' => Auth::user()->id,
             'total' => $request->grand_total,
             'customer_id' => $request->customer
         ]);
@@ -47,7 +47,7 @@ class TransactionController extends Controller
             ]);
 
             TransactionItem::create([
-                'item_id' => $item,
+                'item_id' => $item->id,
                 'transaction_id' => $transaction->id,
                 'price' => $request->price[$key],
                 'qty' => $request->qty[$key],
@@ -70,5 +70,29 @@ class TransactionController extends Controller
 
         toast('Transaksi berhasil dihapus!', 'success');
         return back();
+    }
+
+    public function statistic(){
+        for ($month = 1; $month <= 12; $month++) {
+            $transactionData = Transaction::when(\request('year'), function ($query) {
+                $query->whereYear('created_at', \request('year'));
+            })
+                ->whereMonth('created_at', $month)
+                ->selectRaw('COUNT(*) as transaction_count, COALESCE(SUM(total), 0) as total_amount')
+                ->first();
+
+            $months[] = $month;
+            $transactionCounts[] = $transactionData->transaction_count ?? 0;
+            $totalAmounts[] = $transactionData->total_amount ?? 0;
+
+        }
+
+        $result = [
+            'months' => $months,
+            'transaction_counts' => $transactionCounts,
+            'total_amounts' => $totalAmounts
+        ];
+
+        return $result;
     }
 }

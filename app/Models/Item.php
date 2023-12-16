@@ -18,6 +18,10 @@ class Item extends Model
         'category_id'
     ];
 
+    public function sellings(){
+        return $this->hasMany(TransactionItem::class, 'item_id');
+    }
+
     public function unit(){
         return $this->belongsTo(Unit::class, 'unit_id');
     }
