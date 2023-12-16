@@ -185,7 +185,7 @@
 @endsection
 @section('script')
     <script>
-        const transactionStatisticRoute = "{{ route('transaction.statistic') }}";
+        const transactionStatisticRoute = "{{ route('transaction.statistic', ['year' => \Carbon\Carbon::now()->year()]) }}";
     </script>
     <!-- apexcharts -->
     <script src="{{ URL::asset('build/libs/apexcharts/apexcharts.min.js') }}"></script>

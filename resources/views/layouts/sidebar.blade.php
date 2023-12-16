@@ -31,30 +31,39 @@
 
         <div class="container-fluid">
             <ul class="navbar-nav" id="navbar-nav">
+                @hasanyrole(['Super Admin'])
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="{{ route('home') }}">
                         <i class="mdi mdi-speedometer"></i> <span>Dashboard</span>
                     </a>
                 </li>
+                @endhasanyrole
 
+                @hasanyrole(['Super Admin'])
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="{{ route('supplier.index') }}">
                         <i class="mdi mdi-account-multiple"></i> <span>Supplier</span>
                     </a>
                 </li>
+                @endhasanyrole
 
+                @hasanyrole(['Super Admin'])
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="{{ route('customer.index') }}">
                         <i class="mdi mdi-account-multiple"></i> <span>Customer</span>
                     </a>
                 </li>
+                @endhasanyrole
 
+                @hasanyrole(['Super Admin'])
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="{{ route('user.index') }}">
                         <i class="mdi mdi-account"></i> <span>User</span>
                     </a>
                 </li>
+                @endhasanyrole
 
+                @hasanyrole(['Kasir', 'Super Admin'])
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarProducts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarProducts">
                         <i class="mdi mdi-package"></i> <span>Produk</span>
@@ -73,7 +82,9 @@
                         </ul>
                     </div>
                 </li>
+                @endhasanyrole
 
+                @hasanyrole(['Super Admin'])
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarStocks" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarStocks">
                         <i class="mdi mdi-package"></i> <span>Stok</span>
@@ -89,13 +100,17 @@
                         </ul>
                     </div>
                 </li>
+                @endhasanyrole
 
+                @hasanyrole(['Kasir', 'Super Admin'])
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="{{ route('transaction.create') }}">
                         <i class="mdi mdi-currency-usd"></i> <span>Transaksi</span>
                     </a>
                 </li>
+                @endhasanyrole
 
+                @hasanyrole(['Kasir', 'Super Admin'])
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarReports" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarReports">
                         <i class="mdi mdi-chart-timeline-variant-shimmer"></i> <span>Laporan
@@ -115,6 +130,7 @@
                         </ul>
                     </div>
                 </li>
+                @endhasanyrole
             </ul>
         </div>
         <!-- Sidebar -->
