@@ -7,6 +7,7 @@ use App\Models\Item;
 use App\Models\Unit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Picqer\Barcode\BarcodeGeneratorPNG;
 
 class ItemController extends Controller
 {
@@ -83,6 +84,10 @@ class ItemController extends Controller
     }
 
     public function qr(Item $item){
+        $generator = new BarcodeGeneratorPNG();
+        $image = $generator->getBarcode($item->name, $generator::TYPE_CODE_128);
+
+        return response($image)->header('Content-type','image/png');
         return view('product.item.qr', compact('item'));
     }
 }

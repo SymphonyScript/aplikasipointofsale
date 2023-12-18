@@ -89,7 +89,7 @@
                         </select>
                     </td>
                     <td>
-                        <input class="form-control" type="text" name="price[]" id="price_${randomString}" placeholder="Harga" required value=0 onchange="calcTotal('${randomString}')">
+                        <input class="form-control" type="text" name="price[]" id="price_${randomString}" placeholder="Harga" required readonly value=0 onchange="calcTotal('${randomString}')">
                     </td>
                     <td>
                         <input class="form-control" type="text" name="qty[]" id="qty_${randomString}" placeholder="Qty" required min=1 value=0 onchange="calcTotal('${randomString}')">

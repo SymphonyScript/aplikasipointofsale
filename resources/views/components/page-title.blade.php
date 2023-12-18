@@ -11,6 +11,9 @@
                 @if(@$return)
                     <a class="btn btn-sm btn-primary float-end" href="{{ $return }}"><i class="mdi mdi-arrow-left"></i> Kembali</a>
                 @endif
+                @if(@$exportPDF)
+                    <a class="btn btn-sm btn-primary float-end" href="{{ $exportPDF }}"><i class="mdi mdi-file-pdf-box"></i> PDF</a>
+                @endif
             </div>
         </div>
 

@@ -1,8 +1,8 @@
 @extends('layouts.master')
-@section('title') Unit @endsection
+@section('title') Ukuran @endsection
 @section('content')
     @component('components.page-title')
-        @slot('title') Tambah Unit @endslot
+        @slot('title') Tambah Ukuran @endslot
         @slot('return') {{ $indexLink }}  @endslot
     @endcomponent
 

@@ -3,6 +3,7 @@
 @section('content')
     @component('components.page-title')
         @slot('title') Laporan Stock Out @endslot
+        @slot('exportPDF') {{ route('report.stock.out',['download_type' => 'PDF']) }} @endslot
     @endcomponent
 
     <div class="row">

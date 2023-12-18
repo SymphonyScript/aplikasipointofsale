@@ -1,8 +1,8 @@
 @extends('layouts.master')
-@section('title') Unit @endsection
+@section('title') Ukuran @endsection
 @section('content')
     @component('components.page-title')
-        @slot('title') Unit @endslot
+        @slot('title') Ukuran @endslot
         @slot('add') {{ $createLink }} @endslot
     @endcomponent
 

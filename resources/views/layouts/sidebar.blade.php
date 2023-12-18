@@ -74,7 +74,7 @@
                                 <a href="{{ route('product.category.index') }}" class="nav-link">Kategori</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('product.unit.index') }}" class="nav-link">Unit</a>
+                                <a href="{{ route('product.unit.index') }}" class="nav-link">Ukuran</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('product.item.index') }}" class="nav-link">Item</a>
