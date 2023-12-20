@@ -111,6 +111,7 @@ Route::middleware(['auth'])->group(function (){
     Route::prefix('report')->group(function (){
         Route::prefix('transaction')->group(function (){
             Route::get('/', [\App\Http\Controllers\ReportTransactionController::class, 'index'])->name('report.transaction.index');
+            Route::get('/note/{transaction}', [\App\Http\Controllers\ReportTransactionController::class, 'note'])->name('report.transaction.note');
         });
 
         Route::prefix('stock')->group(function (){

@@ -46,6 +46,7 @@
                                     <td>
 {{--                                        <a href="{{ route('customer.edit', $user) }}" class="btn btn-sm btn-warning"><i class="mdi mdi-pen"></i></a>--}}
                                         <a href="{{ route('transaction.delete', $transaction) }}" class="btn btn-sm btn-danger"><i class="mdi mdi-trash-can"></i></a>
+                                        <a href="{{ route('report.transaction.note', $transaction) }}" class="btn btn-sm btn-success"><i class="mdi mdi-note"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

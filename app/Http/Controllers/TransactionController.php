@@ -6,6 +6,7 @@ use App\Models\Item;
 use App\Models\Transaction;
 use App\Models\TransactionItem;
 use App\Models\User;
+use Barryvdh\DomPDF\PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,7 +57,7 @@ class TransactionController extends Controller
         }
 
         toast('Transaksi berhasil ditambah!', 'success');
-        return redirect()->route('transaction.create');
+        return redirect()->route('report.transaction.note', $transaction);
     }
 
     public function destroy(Transaction $transaction){

@@ -24,4 +24,12 @@ class ReportTransactionController extends Controller
 
         return view('report.transaction.index', compact('transactions'));
     }
+
+    public function note(Transaction $transaction, PDF $PDF){
+        $pdf = $PDF->loadView('report.transaction.note', compact('transaction'))
+            ->setPaper('B5')
+            ->stream('Nota.pdf');
+
+        return $pdf;
+    }
 }
