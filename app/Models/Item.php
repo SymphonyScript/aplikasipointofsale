@@ -13,6 +13,7 @@ class Item extends Model
         'code',
         'name',
         'price',
+        'purchase_price',
         'stock',
         'unit_id',
         'category_id'

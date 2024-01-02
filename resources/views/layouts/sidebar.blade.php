@@ -92,6 +92,9 @@
                     <div class="collapse menu-dropdown" id="sidebarStocks">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
+                                <a href="{{ route('stock.purchasing.index') }}" class="nav-link">Pembelian</a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="{{ route('stock.in.index') }}" class="nav-link">Stock In</a>
                             </li>
                             <li class="nav-item">

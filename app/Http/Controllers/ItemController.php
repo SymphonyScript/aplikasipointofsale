@@ -88,6 +88,6 @@ class ItemController extends Controller
         $image = $generator->getBarcode($item->name, $generator::TYPE_CODE_128);
 
         return response($image)->header('Content-type','image/png');
-        return view('product.item.qr', compact('item'));
+//        return view('product.item.qr', compact('item'));
     }
 }

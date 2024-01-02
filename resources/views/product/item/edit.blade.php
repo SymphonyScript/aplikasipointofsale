@@ -21,9 +21,13 @@
                             <label for="input-name" class="form-label">Nama</label>
                             <input type="text" name="name" class="form-control" id="input-name" placeholder="Nama" required value="{{ $item->name }}">
                         </div>
-                        <div class="col-md-12 form">
-                            <label for="input-price" class="form-label">Harga</label>
-                            <input type="number" name="price" class="form-control" id="input-price" placeholder="Harga" required value="{{ $item->price }}">
+                        <div class="col-md-6 form">
+                            <label for="input-price" class="form-label">Harga Beli</label>
+                            <input type="number" name="purchase_price" class="form-control" id="input-price" placeholder="Harga Beli" required value="{{ $item->purchase_price }}">
+                        </div>
+                        <div class="col-md-6 form">
+                            <label for="input-price" class="form-label">Harga Jual</label>
+                            <input type="number" name="price" class="form-control" id="input-price" placeholder="Harga Beli" required value="{{ $item->price }}">
                         </div>
                         <div class="col-md-6 form">
                             <label for="input-category" class="form-label">Kategori</label>

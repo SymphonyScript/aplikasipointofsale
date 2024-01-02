@@ -9,6 +9,7 @@ class Stock extends Model
 {
     use HasFactory;
 
+    const PURCHASING = 'PEMBELIAN';
     const IN = 'IN';
     const OUT = 'OUT';
 

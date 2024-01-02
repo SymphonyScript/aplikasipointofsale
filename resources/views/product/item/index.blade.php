@@ -16,11 +16,13 @@
                     <table class="table align-middle table-nowrap mb-0">
                         <thead class="table-light">
                             <tr>
+                                <th scope="col">Barcode</th>
                                 <th scope="col">Kode</th>
                                 <th scope="col">Nama</th>
                                 <th scope="col">Unit</th>
                                 <th scope="col">Kategori</th>
-                                <th scope="col">Harga</th>
+                                <th scope="col">Harga Beli</th>
+                                <th scope="col">Harga Jual</th>
                                 <th scope="col">Stok</th>
                                 <th scope="col">Aksi</th>
                             </tr>
@@ -28,10 +30,18 @@
                         <tbody>
                             @foreach($items as $item)
                                 <tr>
+                                    <td class="text-center">
+                                        @php
+                                            $generatorPNG = new Picqer\Barcode\BarcodeGeneratorPNG();
+                                        @endphp
+
+                                        <img src="data:image/png;base64,{{ base64_encode($generatorPNG->getBarcode($item->code.' - '.$item->name, $generatorPNG::TYPE_CODE_128)) }}">
+                                    </td>
                                     <td>{{ $item->code }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ @$item->unit->name }}</td>
                                     <td>{{ @$item->category->name }}</td>
+                                    <td>{{ rp_format($item->purchase_price) }}</td>
                                     <td>{{ rp_format($item->price) }}</td>
                                     <td>{{ $item->stock }}</td>
                                     <td>

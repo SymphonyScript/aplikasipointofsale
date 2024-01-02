@@ -99,6 +99,13 @@ Route::middleware(['auth'])->group(function (){
             Route::put('/update/{stock}', [\App\Http\Controllers\StockOutController::class, 'update'])->name('stock.out.update');
             Route::get('/delete/{stock}', [\App\Http\Controllers\StockOutController::class, 'destroy'])->name('stock.out.delete');
         });
+
+        Route::prefix('purchasing')->group(function (){
+            Route::get('/', [\App\Http\Controllers\StockPurchasingController::class, 'index'])->name('stock.purchasing.index');
+            Route::get('/show/{purchasing}', [\App\Http\Controllers\StockPurchasingController::class, 'show'])->name('stock.purchasing.show');
+            Route::get('/create', [\App\Http\Controllers\StockPurchasingController::class, 'create'])->name('stock.purchasing.create');
+            Route::post('/store', [\App\Http\Controllers\StockPurchasingController::class, 'store'])->name('stock.purchasing.store');
+        });
     });
 
     Route::prefix('transaction')->group(function (){
